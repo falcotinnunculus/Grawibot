@@ -76,11 +76,11 @@ for article in list:
         itemnast=pywikibot.ItemPage.fromPage(pagenast)
         dictnast=itempop.get()
         
-        site = pywikibot.Site("wikidata", "wikidata")
-        repo = site.data_repository()
-        item = pywikibot.ItemPage(repo, str(item)[11:-2])
-        claim = pywikibot.Claim(repo, u'P197')
-        target = pywikibot.ItemPage(repo, str(itemnast)[11:-2])
+        sited = pywikibot.Site("wikidata", "wikidata")
+        repod = sited.data_repository()
+        item = pywikibot.ItemPage(repod, str(item)[11:-2])
+        claim = pywikibot.Claim(repod, u'P197')
+        target = pywikibot.ItemPage(repod, str(itemnast)[11:-2])
         claim.setTarget(target)
         item.addClaim(claim, summary=u'Adding claim')
         
@@ -89,11 +89,11 @@ for article in list:
         mont=int(date.strftime("%m"))
         da=int(date.strftime("%d"))
         
-        statedin = pywikibot.Claim(repo, u'P143')
-        itis = pywikibot.ItemPage(repo, "Q1551807")
+        statedin = pywikibot.Claim(repod, u'P143')
+        itis = pywikibot.ItemPage(repod, "Q1551807")
         statedin.setTarget(itis)
         
-        retrieved = pywikibot.Claim(repo, u'P813')
+        retrieved = pywikibot.Claim(repod, u'P813')
         date = pywikibot.WbTime(year=yea, month=mont, day=da)
         retrieved.setTarget(date)
         
